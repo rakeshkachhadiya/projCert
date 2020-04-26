@@ -1,27 +1,31 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="../tests/bootstrap.php"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.2/phpunit.xsd"
          backupGlobals="false"
          backupStaticAttributes="false"
-         strict="true"
+         beStrictAboutCoversAnnotation="true"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         forceCoversAnnotation="true"
          verbose="true">
-    <!--
-    <testsuites>
-        <testsuite name="ProjectName">
-            <directory suffix="Test.php">tests/unit/</directory>
-            <directory suffix="Test.php">tests/integration/</directory>
-        </testsuite>
-    </testsuites>
-    -->
+    <testsuite name="projCert">
+        <directory suffix="Test.php">../tests</directory>
+    </testsuite>
+
     <logging>
         <log type="coverage-html" target="coverage"/>
         <log type="coverage-clover" target="logs/clover.xml"/>
         <log type="coverage-crap4j" target="logs/crap4j.xml"/>
-        <log type="junit" target="logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="coverage-xml" target="logs/coverage"/>
+        <log type="junit" target="logs/junit.xml"/>
+        <log type="testdox-html" target="testdox/index.html"/>
     </logging>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">../src</directory>
         </whitelist>
     </filter>
 </phpunit>
+
